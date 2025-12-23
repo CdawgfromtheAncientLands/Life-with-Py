@@ -555,12 +555,12 @@ class MainScreen(Screen):
 class QuotaApp(App):
     CSS = """
     #layout { height: 1fr; }
-    #calendar { width: 30%; min-width: 30ch; padding: 1; border: solid $accent 1; }
+    #calendar { width: 30%; min-width: 30ch; padding: 1; border: solid $accent; }
     #right-pane { padding: 1; }
     #day-grid { grid-size: 7; grid-gutter: 1 1; }
     Button.selected { background: $accent; color: $text; }
     .hidden { display: none; }
-    #items > * { padding: 1; border: solid $panel 1; margin: 0 0 1 0; }
+    #items > * { padding: 1; border: solid $panel; margin: 0 0 1 0; }
     .validation { color: $warning; }
     #modal-actions Button { width: 1fr; }
     #settings-container TextArea { height: 20; }
