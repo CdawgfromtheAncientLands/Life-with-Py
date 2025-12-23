@@ -3,7 +3,7 @@ Quota Tracker TUI
 
 README
 ------
-Install: pip install textual pyinstaller
+Install: pip install -r requirements.txt
 Run: python app.py
 Build executable: pyinstaller --onefile --name quota app.py
 """
