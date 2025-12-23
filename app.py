@@ -78,7 +78,7 @@ class CalendarView(Vertical):
             id="nav",
         )
         yield Label("", id="month_label")
-        yield Container(id="days")
+        yield Container(Container(id="day-grid"), id="days")
 
     def on_mount(self) -> None:
         self.refresh_calendar()
@@ -91,7 +91,8 @@ class CalendarView(Vertical):
         month_label = self.query_one("#month_label", Label)
         month_label.update(self.month.strftime("%B %Y"))
         days_container = self.query_one("#days", Container)
-        days_container.remove_children()
+        grid_container = days_container.query_one("#day-grid", Container)
+        grid_container.remove_children()
 
         first_weekday, num_days = calendar.monthrange(self.month.year, self.month.month)
         day_grid: List[Static] = []
@@ -106,8 +107,7 @@ class CalendarView(Vertical):
                 btn.add_class("selected")
             btn.tooltip = day_date.isoformat()
             day_grid.append(btn)
-        grid_container = Container(*day_grid, id="day-grid")
-        days_container.mount(grid_container)
+        grid_container.mount(*day_grid)
 
     def watch_month(self, old: date, new: date) -> None:  # type: ignore[override]
         month_start = new.replace(day=1)
