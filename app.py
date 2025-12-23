@@ -555,7 +555,7 @@ class MainScreen(Screen):
 class QuotaApp(App):
     CSS = """
     #layout { height: 1fr; }
-    #calendar { width: 30%; min-width: 30ch; padding: 1; border: solid $accent; }
+    #calendar { width: 30%; min-width: 30w; padding: 1; border: solid $accent; }
     #right-pane { padding: 1; }
     #day-grid { grid-size: 7; grid-gutter: 1 1; }
     Button.selected { background: $accent; color: $text; }
